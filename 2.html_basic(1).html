@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML BASIC 1</title>
+  </head>
+  <!-- <background="images/KakaoTalk_Photo_2024-06-30-22-19-32.jpeg"> -->
+  <!-- style 이 붙으면 css 태그, 없으면 html 에서 지원하는 스타일용 태그 -->
+  <body>
+    <h2>글자 styling 예제</h2>
+    <!-- 인라인 스타일링 -->
+    <p style="background-color: aliceblue">1. 배경색 변경</p>
+    <p style="color: orange">2. 글자색 변경</p>
+    <p style="font-size: 20px">3. 글자 크기 변경</p>
+    <p
+      style="
+        background-color: aliceblue;
+        color: orange;
+        font-size: 25px;
+        text-align: center;
+      "
+    >
+      <b>4. 복합 스타일링 적용</b>
+    </p>
+    <h2>link 와 이미지 삽입</h2>
+    <!-- target="_blank" : 새 탭으로 이동 -->
+    <div>
+      <a href="https://naver.com" target="_blank">네이버로 바로가기 링크</a>
+    </div>
+    <!-- div 로 구역을 나누기 or br -->
+    <div>
+      <a href="https://github.com/tteia/" target="_blank">
+        <!-- alt : 이미지가 깨졌을 때 조회되는 대체 문자열, 시각 장애인용 reader 기에서 인식 -->
+        <img
+          src="images/KakaoTalk_Photo_2024-06-30-22-19-32.jpeg"
+          alt="애옹이"
+          width="320px"
+          height="320px"
+          style="border: 3px solid black"
+      /></a>
+    </div>
+    <h2>리스트(ol : 순서가 있음 | ul : 순서가 없음)</h2>
+    <!-- 기본 ol : 아라비아 숫자로 li 조회(1. 아이템A , 2.아이템B) -->
+    <!-- list-style-type 로 아라비아 숫자 외 스타일 지정 가능-->
+    <ol style="list-style-type: square">
+      <li>아이템A</li>
+      <li>아이템B</li>
+      <li>아이템C</li>
+    </ol>
+    <ul>
+      <li>아이템A</li>
+      <li>아이템B</li>
+      <li>아이템C</li>
+    </ul>
+
+    <h2>테이블 예제 | 기본 기능</h2>
+    <!-- 테이블 자체에서 제공하는 border(선) -->
+    <!-- 각각의 구역에 그어지는 선을 collapse 로 합쳐주기 !-->
+    <table border="1" style="border-collapse: collapse">
+      <!-- caption : 테이블 이름-->
+      <caption>
+        테이블명
+      </caption>
+      <!-- 가독성을 위해 thead / tbody 로 표시해줌 > 따로 기능은 없지만 가독성이 향상됨.-->
+      <thead>
+        <tr>
+          <!-- 1. 테이블 안에 th -->
+          <th>컬럼1</th>
+          <th>컬럼2</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <!-- 2. 테이블 안에 td -->
+          <td>내용1</td>
+          <td>내용2</td>
+        </tr>
+        <tr>
+          <td>내용A</td>
+          <td>내용B</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    <br />
+    <!-- 테이블 만들기 실습 -->
+    <!-- 테이블명은 post | id, title, contents, author_email 요소와 데이터를 가진 테이블 생성해보기. -->
+    <table border="1" style="border-collapse: collapse; border-color: skyblue">
+      <caption>
+        <!-- mark : 형광펜 표시 -->
+        <b><mark>Post</mark></b>
+      </caption>
+      <thead>
+        <tr style="background-color: lightyellow">
+          <th>ID</th>
+          <th>TITLE</th>
+          <th>CONTENTS</th>
+          <th>AUTHOR_EMAIL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>tteia</td>
+          <td>hello</td>
+          <td>hello html world</td>
+          <td>tteia@test.com</td>
+        </tr>
+        <tr>
+          <td>홍길동</td>
+          <td>안녕하세요.</td>
+          <td>반갑습니다.</td>
+          <td>hong1@test.com</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
