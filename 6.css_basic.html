@@ -25,6 +25,12 @@
       .smalltext {
         font-size: 12px;
       }
+      #vwvh {
+        /* 높이에 대해 1% */
+        font-size: 1vh;
+        /* 너비에 대해 1% */
+        font-size: 1vw;
+      }
     </style>
   </head>
   <body>
@@ -40,5 +46,56 @@
     <p class="italic smalltext">
       클래스 선택자 적용 : font style 과 font size 중첩 적용 2
     </p>
+
+    <h2>폰트 조절해보기</h2>
+    <p style="font-family: Georgia, 'Times New Roman', Times, serif">
+      font family
+    </p>
+    <!-- em : 부모요소에 대해 배수. percent : 부모요소에 대해 퍼센트.-->
+    <div style="font-size: 20px">
+      부모 텍스트입니다.👨‍👩‍👧‍👦
+      <div style="font-size: 1.5em">이 텍스트는 부모 글꼴의 1.5 배 🤸🏻!</div>
+    </div>
+    <div style="font-size: 20px">
+      너무 피곤해요..
+      <div style="font-size: 150%">집에 보내조요..</div>
+    </div>
+    <div id="vwvh">
+      vm, vh 를 적용해 화면에 따라 크기가 달라지는 글꼴 크기입니다.
+    </div>
+
+    <div
+      style="
+        border: 5px solid aliceblue;
+        width: 400px;
+        height: 200px;
+        margin: auto;
+        text-align: center;
+        place-content: center;
+      "
+    >
+      margin, border, padding 을 가진 요소
+    </div>
+
+    <table
+      border="1"
+      style="border-collapse: collapse; margin: auto; text-align: center"
+    >
+      <caption>
+        정렬 테이블
+      </caption>
+      <thead>
+        <tr>
+          <th>th1</th>
+          <th>th2222222222</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>td1</td>
+          <td>td2</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
