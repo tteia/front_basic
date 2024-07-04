@@ -6,7 +6,8 @@
     <title>js_Basic</title>
     <script>
       function showObject() {
-        let person = { name: "hong", age: 20, email: "hong@naver.com" }; // 객체는 {}, 배열은 [];
+        // 객체는 {}, 배열은 [];
+        let person = { name: "hong", age: 20, email: "hong@naver.com" };
         // 객체 접근 방법 1
         console.log(
           "이름은 " +
@@ -22,6 +23,9 @@
 
         // Object.keys : 객체의 키를 배열로 반환.
         const arr = Object.keys(person);
+        console.log("@@@@@@@@@@@@@" + arr);
+        const arr2 = Object.values(person);
+        console.log("@@@@@@@@@@@@@" + arr2);
         for (let i = 0; i < arr.length; i++) {
           console.log(person[arr[i]]);
         }
@@ -108,7 +112,6 @@
         // map 메서드
         const newNum = num1.filter((a) => a % 2 == 0).map((n) => n * n);
         console.log(newNum);
-
         console.log(num1.find((a) => a % 2 == 0));
 
         // 스프레드 문법

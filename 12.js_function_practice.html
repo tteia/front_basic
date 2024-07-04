@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>계산기</title>
+    <script>
+      function calculate() {
+        const numbers = document.getElementById("calculator").value;
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        let result;
+
+        switch (numbers) {
+          case "plus":
+            result = num1 + num2;
+            break;
+          case "minus":
+            result = num1 - num2;
+            break;
+          case "multiply":
+            result = num1 * num2;
+            break;
+          case "divide":
+            result = num1 / num2;
+            break;
+          default:
+        }
+
+        document.getElementById("result").textContent = result;
+      }
+    </script>
+  </head>
+  <body>
+    <h2>계산기 프로그램 구현</h2>
+    <div>
+      <!-- 사용자로부터 사칙연산을 선택 -->
+      <label>사칙 연산 선택</label>
+      <select id="calculator">
+        <option value="plus">덧셈</option>
+        <option value="minus">뺄셈</option>
+        <option value="multiply">곱셈</option>
+        <option value="divide">나눗셈</option>
+      </select>
+      <input type="text" id="num1" style="background-color: honeydew" />
+      <input type="text" id="num2" style="background-color: honeydew" />
+      <!-- getElementbyId("calculator").value  -->
+      <button onclick="calculate()">계산</button>
+    </div>
+    <div>결과 : <span id="result"></span></div>
+  </body>
+</html>
