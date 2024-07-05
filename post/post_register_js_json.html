@@ -14,11 +14,7 @@
 
     <!-- 3. post_register : form -> 제목, 내용 입력, 제출 -->
     <div class="container">
-      <form
-        action="http://localhost:8081/post/register2"
-        method="post"
-        enctype="application/x-www-form-urlencoded"
-      >
+      <form id="postForm">
         <br />
         <div class="page-header"><h2>✏️ 게시글 작성</h2></div>
         <br />
@@ -51,5 +47,26 @@
         <button type="submit" class="btn btn-secondary">제출</button>
       </form>
     </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document
+        .getElementById("postForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+          const title = document.getElementById("title").value;
+          const contents = document.getElementById("contents").value;
+          const postJson = { title, contents }; // key 값이랑 value 랑 > 속성이랑 이름이 똑같아서 간단하게.
+
+          try {
+            const response = await axios.post(
+              "http://localhost:8081/post/register1",
+              postJson
+            );
+            console.log(response.data);
+          } catch (e) {
+            console.log(e);
+          }
+        });
+    </script>
   </body>
 </html>

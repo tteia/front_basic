@@ -23,14 +23,12 @@
 
         // Object.keys : 객체의 키를 배열로 반환.
         const arr = Object.keys(person);
-        console.log("@@@@@@@@@@@@@" + arr);
         const arr2 = Object.values(person);
-        console.log("@@@@@@@@@@@@@" + arr2);
         for (let i = 0; i < arr.length; i++) {
           console.log(person[arr[i]]);
         }
-        // Object.keys(person);
-        // Object.values(person);
+        // Object.keys(person); > 키 값 가져옴
+        // Object.values(person); > 밸류 값 가져옴
 
         // 아래처럼 간단하게 할 수 있다.
         arr.forEach((k) => console.log(person[k]));
@@ -39,7 +37,12 @@
         });
       }
       function makeObject() {
-        // 방법 1. 리터럴 방식
+        // 방법 1. 리터럴 방식 {} 중괄호를 사용하여 나열하는 방식이 리터럴 방식.
+        let myObjectLiteral = {
+          name: "hong",
+          email: "test@test.com",
+          password: "1234",
+        };
 
         // 방법 2. 동적으로 키와 값을 추가
         let myObject = {};
@@ -49,8 +52,8 @@
         console.log(myObject);
 
         // 위 객체를 Object.keys 를 통해서 value 만 console로 출력.
-        const arr = Object.keys(myObject);
-        arr.forEach((k) => console.log(myObject[k]));
+        const tmp = Object.keys(myObject);
+        tmp.forEach((k) => console.log(myObject[k]));
 
         // name(key) : hong(value), email(key) : hong@naver.com(value) 만들기
         // 백틱을 활용한 템플릿 리터럴.
@@ -114,6 +117,19 @@
         console.log(newNum);
         console.log(num1.find((a) => a % 2 == 0));
 
+        let users = [
+          { firstName: "Susan", lastName: "Steward" },
+          { firstName: "Daniel", lastName: "Longbottom" },
+          { firstName: "Jacob", lastName: "Black" },
+        ];
+
+        let userFullnames1 = users.map(function (element) {
+          return `${element.firstName} ${element.lastName}`;
+        });
+
+        console.log(userFullnames);
+        // ["Susan Steward", "Daniel Longbottom", "Jacob Black"]
+
         // 스프레드 문법
         const num2 = [...num1, 7, 8, 9];
         console.log(num2);
@@ -141,25 +157,26 @@
         ];
 
         // arr1 에 있는 key 값이 arr2 에 id 값으로 있다면, 해당 arr2 의 요소로 이루어진 새로운 객체를 생성.
+        // arr1 의 키 값을 가진 tmp 배열을 생성 > tmp 배열 forEach문으로 arr2 의 아이디랑 같으면 value 값 가져오기
+
         // 아영이 코드 > 디벨롭 필요함 ㅠ.ㅠ
-        // const tmp = arr2.filter((a) => a.id == arr1.key);
-        // console.log(tmp);
+        // const tmp = Object.keys(arr1); // arr1 에 있는 key 값을 tmp 배열에 넣어줌.
 
         // key 를 대상으로 map 을 만들기
         const arr3 = Object.keys(arr1).map((a) => {
           const p1 = arr2.find((b) => b.id == a);
-          return p1;
+          console.log(p1);
         });
       }
       function convertType() {
         let numStr = "10";
         let str = "hello";
         let num1 = Number(numStr);
-        console.log(num1); // NaN(Not a Number) 에러 발생
+        console.log(num1); // 10.
         // typeof : 변수의 타입 리턴
-        console.log(typeof num1);
+        console.log(typeof num1); // number
         num1 = String(num1);
-        console.log(typeof num1);
+        console.log(typeof num1); // string
 
         // == ===
         console.log(10 == "10"); // true

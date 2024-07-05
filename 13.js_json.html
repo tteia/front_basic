@@ -4,38 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSON 직렬화 및 역직렬화 실습</title>
-    <script>
-      // 단일객체
-      const jsonTxt1 = '{"name":"Alice","age":25,"score":85}';
-      // 객체배열
-      const jsonTxt2 =
-        '[{"name":"Alice","age":25,"score":85},{"name":"Bob","age":28,"score":92},{"name":"Charlie","age":32,"score":88}]';
-
-      // JSON 문자열을 JavaScript 객체로 변환
-      const user1 = JSON.parse(jsonTxt1);
-      const user2 = JSON.parse(jsonTxt2);
-
-      // 사용자 정보 출력 함수
-      function printUserInfo(user) {
-        document.getElementById("name").innerText = user.name;
-        document.getElementById("age").innerText = user.age;
-        document.getElementById("score").innerText = user.score;
-      }
-
-      // 사용자 정보 출력
-      window.onload = function () {
-        printUserInfo(user1);
-      };
-
-      obj2.forEach((element) => {
-        tbodyData.innerHTML += `<tr><td>${element.name}</td><td>${element.age}</td><td>${element.score}</td></tr>`;
-      });
-
-      // json 직렬화
-      const jsonTxt3 = JSON.stringify(obj2);
-      console.log(jsonTxt3);
-      console.log(obj2);
-    </script>
   </head>
   <body>
     <table border="1" style="border-collapse: collapse; margin: auto">
@@ -54,7 +22,43 @@
       border="1"
       style="border-collapse: collapse; margin: auto; text-align: center"
     >
-      <tbody id></tbody>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>age</th>
+          <th>score</th>
+        </tr>
+      </thead>
+      <tbody id="data"></tbody>
     </table>
+    <script>
+      // 단일객체
+      const jsonTxt1 = '{"name":"Alice","age":25,"score":85}';
+      // 객체배열
+      const jsonTxt2 =
+        '[{"name":"Alice","age":25,"score":85},{"name":"Bob","age":28,"score":92},{"name":"Charlie","age":32,"score":88}]';
+      // json 역직렬화(파싱)
+      const obj1 = JSON.parse(jsonTxt1);
+      const obj2 = JSON.parse(jsonTxt2);
+      document.getElementById("name").innerHTML = obj1.name;
+      document.getElementById("age").innerHTML = obj1.age;
+      document.getElementById("score").innerHTML = obj1.score;
+
+      let tbodyData = document.getElementById("data");
+      obj2.forEach((element) => {
+        tbodyData.innerHTML += `
+          <tr>
+            <td>${element.name}</td>
+            <td>${element.age}</td>
+            <td>${element.score}</td>
+          </tr>
+        `;
+      });
+
+      // json 직렬화
+      const jsonTxt3 = JSON.stringify(obj2);
+      console.log(jsonTxt3);
+      console.log(obj2);
+    </script>
   </body>
 </html>

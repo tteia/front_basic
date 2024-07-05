@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>callBack 지옥 . . 😈</title>
+  </head>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script>
+      // async : 비동기. 통째로 async 함수다 !
+      async function callBackHell() {
+        // await : await 가 있는 곳에서는 기다려 ~!
+        // await 가 없으면 > 순서가 보장되지 않음.
+        const response1 = await $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts/1",
+          type: "GET",
+          dataType: "json",
+          success: function (a) {
+            console.log("a는 " + a);
+          },
+          error: function () {},
+        });
+        const response2 = await $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts/1",
+          type: "GET",
+          dataType: "json",
+          success: function (b) {
+            console.log("b는 " + b);
+          },
+          error: function () {},
+        });
+        const response3 = await $.ajax({
+          url: "https://jsonplaceholder.typicode.com/posts/1",
+          type: "GET",
+          dataType: "json",
+          success: function (c) {
+            console.log("c는 " + c);
+          },
+          error: function () {},
+        });
+      }
+      callBackHell();
+      console.log("hello world");
+    </script>
+  </body>
+</html>

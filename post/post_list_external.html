@@ -22,7 +22,6 @@
         <thead>
           <tr>
             <th>id</th>
-            <th>user_id</th>
             <th>title</th>
             <th>contents</th>
           </tr>
@@ -37,9 +36,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       async function serverData() {
-        const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts/"
-        );
+        const response = await axios.get("http://localhost:8081/post/list");
         const allData = response.data;
         // 4. 포문 돌리기
         // 5. 테이블 데이터 돌리기
@@ -48,12 +45,10 @@
         for (let i = 0; i < allData.length; i++) {
           // 5. for 문에 맞춰 코드 변경
           const id = allData[i].id;
-          const userId = allData[i].userId;
           const title = allData[i].title;
-          const contents = allData[i].body;
+          const contents = allData[i].contents;
           bodyData.innerHTML += `<tr>
             <td>${id}</td>
-            <td>${userId}</td>
             <td>${title}</td>
             <td>${contents}</td>
           </tr>`;

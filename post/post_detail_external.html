@@ -23,11 +23,7 @@
           <td id="id"></td>
         </tr>
         <tr>
-          <td>👩🏻‍💻 작성자</td>
-          <td id="userId"></td>
-        </tr>
-        <tr>
-          <td>제목</td>
+          <td>📝 제목</td>
           <td id="title"></td>
         </tr>
         <tr>
@@ -43,13 +39,12 @@
         // 3. postId 입력 받은 거 가져오기! .value 로 값을 가져오게 함. 안 적어주면 <input type="text" id="postId" /> 이걸 그대로 가져옴.
         const postId = document.getElementById("postId").value;
         const response = await axios.get(
-          "https://jsonplaceholder.typicode.com/posts/" + postId
+          "http://localhost:8081/post/detail/" + postId
         );
         // 4. id 값으로 각각의 내용을 찾아올게여
         document.getElementById("id").innerHTML = response.data.id;
-        document.getElementById("userId").innerHTML = response.data.userId;
         document.getElementById("title").innerHTML = response.data.title;
-        document.getElementById("contents").innerHTML = response.data.body;
+        document.getElementById("contents").innerHTML = response.data.contents;
       }
     </script>
   </body>
