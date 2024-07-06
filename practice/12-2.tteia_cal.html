@@ -4,40 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>계산기</title>
+    <script>
+      // javascript 함수 정의 후 계산
+      function calculate() {
+        // numbers : 사용자가 선택한 연산 종류 저장.
+        const numbers = document.getElementById("calculator").value;
+
+        // num : 사용자가 입력한 숫자 저장
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        let result;
+
+        // numbers > select 에서 선택한 사칙 연산 값을 가져와서 switch문 돌리기
+        switch (numbers) {
+          case "plus":
+            result = num1 + num2;
+            break;
+          case "minus":
+            result = num1 - num2;
+          case "multiply":
+            result = num1 * num2;
+          case "divide":
+            result = num1 / num2;
+            if (num1 == 0 || num2 == 0) {
+              alert("0으로 나눌 수 없습니다.");
+              return;
+            }
+        }
+        document.getElementById("result").textContent = result;
+      }
+    </script>
   </head>
   <body>
-    <h2>계산기 프로그램 구현</h2>
+    <h2>➗계산기 프로그램 구현🟰</h2>
     <div>
-      <!-- 사용자로부터 사칙연산을 선택 -->
-      <label>사칙 연산 선택</label>
+      <label>📱사칙 연산 선택</label>
       <select id="calculator">
         <option value="plus">덧셈</option>
         <option value="minus">뺄셈</option>
         <option value="multiply">곱셈</option>
         <option value="divide">나눗셈</option>
       </select>
-      <input type="text" />
-      <input type="text" />
-      <!-- getElementbyId("calculator").value  -->
-      <button onclick=""></button>
+      <input type="text" id="num1" style="background-color: honeydew" />
+      <input type="text" id="num2" style="background-color: honeydew" />
+      <button onclick="calculate()">계산하기📝</button>
     </div>
-    <div>결과값 <span></span></div>
-
-    <script>
-      function calculate() {
-        let numbers = document.getElementById("calculator").value;
-        let num1 = parseFloat(document.getElementById("num1").value);
-        let num2 = parseFloat(document.getElementById("num2").value);
-        let result;
-
-        if (value == "plus") {
-          result = num1 + num2;
-        } else if (value == "minus") {
-          result = num1 - num2;
-        } else if ((value = "multiply")) {
-          result = num1 * num2;
-        }
-      }
-    </script>
+    <br />
+    <div>결과값 : <span id="result"></span></div>
   </body>
 </html>
